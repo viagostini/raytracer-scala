@@ -4,7 +4,7 @@ import org.scalatest.funsuite.AnyFunSuite
 class VectorTests extends AnyFunSuite {
 
   test("Creating a Vector") {
-    val vector = new Vector(x = 4.3, y = -4.2, z = 3.1)
+    val vector = Vector(4.3, -4.2, 3.1)
     assert(vector.x == 4.3)
     assert(vector.y == -4.2)
     assert(vector.z == 3.1)

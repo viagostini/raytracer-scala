@@ -11,7 +11,8 @@ class Vector(val x: Double, val y: Double, val z: Double, val w: Int = 0) {
 
   def unary_- : Vector = Vector(-x, -y, -z)
 
-  def ==(that: Vector): Boolean = x == that.x && y == that.y && z == that.z
+  def ==(that: Vector): Boolean =
+    almostEqual(x, that.x) && almostEqual(y, that.y) && almostEqual(z, that.z)
 
   def magnitude: Double = math.sqrt(x * x + y * y + z * z)
 

@@ -10,7 +10,8 @@ class Point(val x: Double, val y: Double, val z: Double, val w: Int = 0) {
 
   def unary_- : Point = Point(-x, -y, -z)
 
-  def ==(that: Point): Boolean = x == that.x && y == that.y && z == that.z
+  def ==(that: Point): Boolean =
+    almostEqual(x, that.x) && almostEqual(y, that.y) && almostEqual(z, that.z)
 
   override def toString = s"Point($x, $y, $z)"
 }
