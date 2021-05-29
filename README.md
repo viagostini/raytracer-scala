@@ -1,3 +1,5 @@
+![](https://github.com/viagostini/raytracer-scala/actions/workflows/tests.yml/badge.svg)
+
 ## sbt project compiled with Scala 3
 
 ### Usage
