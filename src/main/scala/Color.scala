@@ -28,4 +28,5 @@ class Color(val red: Double, val green: Double, val blue: Double) {
 
 object Color {
   val BLACK = Color(0, 0, 0)
+  val RED = Color(255, 0, 0)
 }
