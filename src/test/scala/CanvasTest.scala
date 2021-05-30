@@ -42,4 +42,16 @@ class CanvasTest extends AnyFunSuite with Matchers {
                                |0 0 0 0 0 0 0 128 0 0 0 0 0 0 0
                                |0 0 0 0 0 0 0 0 0 0 0 0 0 0 255""".stripMargin
   }
+
+  test("Write big PPM") {
+    val canvas = Canvas(10, 2, Color(1, 0.8, 0.6))
+
+    canvas.ppmLines shouldBe """255 204 153 255 204 153 255 204 153 255 204 153 255 204 153 255 204
+                            |153 255 204 153 255 204 153 255 204 153 255 204 153
+                            |255 204 153 255 204 153 255 204 153 255 204 153 255 204 153 255 204
+                            |153 255 204 153 255 204 153 255 204 153 255 204 153""".stripMargin
+
+    canvas.savePPM("test.ppm")
+
+  }
 }
