@@ -1,20 +1,21 @@
 import raytracer.Color
 import org.scalatest.funsuite.AnyFunSuite
+import org.scalatest.matchers.should.Matchers
 
-class ColorTests extends AnyFunSuite {
+class ColorTests extends AnyFunSuite with Matchers {
 
   test("Creating a Color") {
     val color = Color(4.3, -4.2, 3.1)
-    assert(color.red == 4.3)
-    assert(color.green == -4.2)
-    assert(color.blue == 3.1)
+    color.red shouldBe 4.3
+    color.green shouldBe -4.2
+    color.blue shouldBe 3.1
   }
 
   test("Comparing two Colors") {
     val actual = Color(3.1, 2.5, 1.6)
     val expected = Color(3.1, 2.5, 1.6)
 
-    assert(actual == expected)
+    actual shouldBe expected
   }
 
   test("Adding two Colors") {
@@ -24,7 +25,7 @@ class ColorTests extends AnyFunSuite {
     val actual = color + other
     val expected = Color(8, 8, 8)
 
-    assert(actual == expected)
+    actual shouldBe expected
   }
 
   test("Subtracting two Colors") {
@@ -34,7 +35,7 @@ class ColorTests extends AnyFunSuite {
     val actual = color - other
     val expected = Color(-2, -4, -6)
 
-    assert(actual == expected)
+    actual shouldBe expected
   }
 
   test("Hadamard product") {
@@ -44,6 +45,6 @@ class ColorTests extends AnyFunSuite {
     val actual = color * that
     val expected = Color(0.9, 0.2, 0.04)
 
-    assert(actual == expected)
+    actual shouldBe expected
   }
 }

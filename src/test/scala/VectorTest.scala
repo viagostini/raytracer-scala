@@ -1,21 +1,22 @@
-import raytracer.Vector
 import org.scalatest.funsuite.AnyFunSuite
+import org.scalatest.matchers.should.Matchers
+import raytracer.Vector
 
-class VectorTests extends AnyFunSuite {
+class VectorTests extends AnyFunSuite with Matchers {
 
   test("Creating a Vector") {
     val vector = Vector(4.3, -4.2, 3.1)
-    assert(vector.x == 4.3)
-    assert(vector.y == -4.2)
-    assert(vector.z == 3.1)
-    assert(vector.w == 0)
+    vector.x shouldBe 4.3
+    vector.y shouldBe -4.2
+    vector.z shouldBe 3.1
+    vector.w shouldBe 0
   }
 
   test("Comparing two Vectors") {
     val actual = Vector(3.1, 2.5, 1.6)
     val expected = Vector(3.1, 2.5, 1.6)
 
-    assert(actual == expected)
+    actual shouldBe expected
   }
 
   test("Adding two Vectors") {
@@ -25,7 +26,7 @@ class VectorTests extends AnyFunSuite {
     val actual = vector + other
     val expected = Vector(8, 8, 8)
 
-    assert(actual == expected)
+    actual shouldBe expected
   }
 
   test("Subtracting two Vectors") {
@@ -35,7 +36,7 @@ class VectorTests extends AnyFunSuite {
     val actual = vector - other
     val expected = Vector(-2, -4, -6)
 
-    assert(actual == expected)
+    actual shouldBe expected
   }
 
   test("Negating a Vector") {
@@ -44,7 +45,7 @@ class VectorTests extends AnyFunSuite {
     val actual = -vector
     val expected = Vector(-1, 2, -3)
 
-    assert(actual == expected)
+    actual shouldBe expected
   }
 
   test("Multiplying a vector by a scalar") {
@@ -53,7 +54,7 @@ class VectorTests extends AnyFunSuite {
     val actual = vector * 3.5
     val expected = Vector(3.5, -7, 10.5)
 
-    assert(actual == expected)
+    actual shouldBe expected
   }
 
   test("Dividing a vector by a scalar") {
@@ -62,7 +63,7 @@ class VectorTests extends AnyFunSuite {
     val actual = vector / 2
     val expected = Vector(0.5, -1, 1.5)
 
-    assert(actual == expected)
+    actual shouldBe expected
   }
 
   test("Computing the magnitude of a Vector") {
@@ -71,7 +72,7 @@ class VectorTests extends AnyFunSuite {
     val actual = vector.magnitude
     val expected = math.sqrt(14)
 
-    assert(actual == expected)
+    actual shouldBe expected
   }
 
   test("Normalizing a Vector") {
@@ -82,7 +83,7 @@ class VectorTests extends AnyFunSuite {
     val actual = normalized.magnitude
     val expected = 1
 
-    assert(actual == expected)
+    actual shouldBe expected
   }
 
   test("Dot product") {
@@ -92,7 +93,7 @@ class VectorTests extends AnyFunSuite {
     val actual = vector.dot(that)
     val expected = 20
 
-    assert(actual == expected)
+    actual shouldBe expected
   }
 
   test("Cross product") {
@@ -101,10 +102,10 @@ class VectorTests extends AnyFunSuite {
 
     var actual = vector.cross(that)
     var expected = Vector(-1, 2, -1)
-    assert(actual == expected)
+    actual shouldBe expected
 
     actual = that.cross(vector)
     expected = Vector(1, -2, 1)
-    assert(actual == expected)
+    actual shouldBe expected
   }
 }

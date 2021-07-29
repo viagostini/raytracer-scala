@@ -1,22 +1,23 @@
 import org.scalatest.funsuite.AnyFunSuite
+import org.scalatest.matchers.should.Matchers
 
 import raytracer.{Point, Vector}
 
-class PointTests extends AnyFunSuite {
+class PointTests extends AnyFunSuite with Matchers {
   test("Creating a Point") {
     val point = new Point(4.3, -4.2, 3.1)
 
-    assert(point.x == 4.3)
-    assert(point.y == -4.2)
-    assert(point.z == 3.1)
-    assert(point.w == 0)
+    point.x shouldBe 4.3
+    point.y shouldBe -4.2
+    point.z shouldBe 3.1
+    point.w shouldBe 0
   }
 
   test("Comparing two Points") {
     val actual = Point(3, -2, 5)
     val expected = Point(3, -2, 5)
 
-    assert(actual == expected)
+    actual shouldBe expected
   }
 
   test("Adding two points") {
@@ -26,7 +27,7 @@ class PointTests extends AnyFunSuite {
     val actual = point + vector
     val expected = Point(1, 1, 6)
 
-    assert(actual == expected)
+    actual shouldBe expected
   }
 
   test("Subtracting a vector from a point") {
@@ -36,7 +37,7 @@ class PointTests extends AnyFunSuite {
     val actual = point - other
     val expected = Point(-2, -4, -6)
 
-    assert(actual == expected)
+    actual shouldBe expected
   }
 
   test("Subtracting two points") {
@@ -46,7 +47,7 @@ class PointTests extends AnyFunSuite {
     val actual = point - other
     val expected = Vector(-2, -4, -6)
 
-    assert(actual == expected)
+    actual shouldBe expected
   }
 
   test("Negating a Point") {
@@ -55,7 +56,7 @@ class PointTests extends AnyFunSuite {
     val actual = -point
     val expected = Point(-1, 2, -3)
 
-    assert(actual == expected)
+    actual shouldBe expected
   }
 
   test("Multiplying a point by a scalar") {
@@ -64,7 +65,7 @@ class PointTests extends AnyFunSuite {
     val actual = point * 3.5
     val expected = Point(3.5, -7, 10.5)
 
-    assert(actual == expected)
+    actual shouldBe expected
   }
 
   test("Dividing a point by a scalar") {
@@ -73,6 +74,6 @@ class PointTests extends AnyFunSuite {
     val actual = point / 2
     val expected = Point(0.5, -1, 1.5)
 
-    assert(actual == expected)
+    actual shouldBe expected
   }
 }
